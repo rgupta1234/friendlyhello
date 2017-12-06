@@ -17,7 +17,9 @@ def hello():
 
     html = "<h3>Hello {name}!</h3>" \
            "<b>Hostname:</b> {hostname}<br/>" \
-           "<b>Visits:</b> {visits}"
+           "<b>Visits:</b> {visits}" \
+           "<p><img src='https://www.docker.com/sites/default/files/Whale%20Logo332_5.png' alt='I <3 Docker'/></p>" \
+
     return html.format(name=os.getenv("NAME", "world"), hostname=socket.gethostname(), visits=visits)
 
 if __name__ == "__main__":

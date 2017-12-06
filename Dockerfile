@@ -14,7 +14,8 @@ RUN pip install --trusted-host pypi.python.org -r requirements.txt
 EXPOSE 80
 
 # Define environment variable
-ENV NAME World
+ENV HTTP_PROXY "http://mdct-proxy.dartcontainer.com:8080"
+ENV NAME Whale
 
 # Run app.py when the container launches
 CMD ["python", "app.py"]
