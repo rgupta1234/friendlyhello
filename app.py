@@ -15,10 +15,14 @@ def hello():
     except RedisError:
         visits = "<i>cannot connect to Redis, counter disabled</i>"
 
+    img_url = 'https://tr4.cbsistatic.com/hub/i/r/2017/10/13/1455bd12-7a96-48ee-8ad2-7af33d31017c/thumbnail/768x432/843ec3e4805e49358b2c9dc52100b373/20171010dockerjack.jpg'
+
     html = "<h3>Hello {name}!</h3>" \
            "<b>Hostname:</b> {hostname}<br/>" \
-           "<b>Visits:</b> {visits}"
-    return html.format(name=os.getenv("NAME", "world"), hostname=socket.gethostname(), visits=visits)
+           "<b>Visits:</b> {visits}" \
+           "<p><img src='{img_url}' alt='I <3 Docker'/></p>" \
+
+    return html.format(name=os.getenv("NAME", "world"), hostname=socket.gethostname(), visits=visits, img_url=img_url)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
